@@ -1,0 +1,10 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+const articles = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<SiteLayout title="Artigos" description="Artigos demonstrativos sobre organização contábil e rotina de pequenos negócios." path="/artigos/">
+  <section class="page-hero container page-hero--compact"><p class="eyebrow">Artigos</p><h1>Informação prática para <em>consultar</em> com calma.</h1><p class="page-hero__lead">Conteúdos demonstrativos para ajudar a organizar perguntas e documentos. Eles não substituem uma orientação profissional para o seu caso.</p></section>
+  <section class="section container"><div class="article-grid article-grid--listing">{articles.map((article) => <ArticleCard href={`/artigos/${article.id}/`} {...article.data} />)}</div></section>
+</SiteLayout>

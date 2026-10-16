@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "pequenos-negocios",
+    "eyebrow": "Para quem está construindo",
+    "title": "Pequenos negócios",
+    "description": "Uma rotina contábil mais clara ajuda a separar documentos, acompanhar demandas e saber o que perguntar.",
+    "needs": ["Organizar documentos e prazos", "Entender as rotinas da empresa", "Conversar sobre dúvidas do dia a dia"]
+  },
+  {
+    "slug": "mei",
+    "eyebrow": "Para microempreendedores",
+    "title": "MEIs",
+    "description": "Informação objetiva para o microempreendedor compreender a rotina do negócio e buscar orientação quando precisar.",
+    "needs": ["Manter informações do negócio reunidas", "Entender obrigações e datas importantes", "Avaliar próximos passos com orientação"]
+  },
+  {
+    "slug": "autonomos",
+    "eyebrow": "Para quem trabalha por conta própria",
+    "title": "Profissionais autônomos",
+    "description": "Apoio para organizar a atividade profissional e conversar sobre documentação, formalização e rotina contábil.",
+    "needs": ["Separar movimentações profissionais e pessoais", "Organizar comprovantes e registros", "Esclarecer dúvidas sobre formalização"]
+  }
+]

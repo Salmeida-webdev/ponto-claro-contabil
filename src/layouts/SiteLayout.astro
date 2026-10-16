@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import Header from '../components/SiteHeader.astro';
+import Footer from '../components/SiteFooter.astro';
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+const { title, description, path = '/' } = Astro.props;
+const pageTitle = title.includes('Ponto Claro') ? title : `${title} | Ponto Claro Contábil`;
+const canonical = Astro.site ? new URL(path, Astro.site).toString() : undefined;
+const shouldPreloadHero = Astro.url.pathname === '/';
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17213f" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <link rel="sitemap" href={new URL('/sitemap-index.xml', Astro.site!).toString()} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {Astro.site && <meta property="og:image" content={new URL('/images/mesa-contabilidade-1536.webp', Astro.site).toString()} />}
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    {shouldPreloadHero && <link rel="preload" as="image" href="/images/mesa-contabilidade-960.webp" imagesrcset="/images/mesa-contabilidade-960.webp 960w, /images/mesa-contabilidade-1536.webp 1536w" imagesizes="(max-width: 760px) 100vw, 48vw" fetchpriority="high" />}
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo"><slot /></main>
+    <Footer />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

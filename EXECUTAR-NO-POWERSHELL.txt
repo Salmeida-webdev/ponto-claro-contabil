@@ -1,0 +1,37 @@
+1. Baixe ponto-claro-contabil.zip para a pasta Downloads.
+2. Abra o PowerShell e execute o bloco abaixo:
+
+$ProjectRoot = Join-Path $env:USERPROFILE "ponto-claro-contabil"
+$ZipPath = Join-Path $env:USERPROFILE "Downloads\ponto-claro-contabil.zip"
+
+if (!(Get-Command node -ErrorAction SilentlyContinue)) {
+    throw "Node.js não foi encontrado. Instale Node.js 22.22.0 LTS e abra um novo PowerShell."
+}
+$NodeVersion = (node --version).Trim().TrimStart("v")
+if ([version]$NodeVersion -lt [version]"22.22.0") {
+    throw "Node.js $NodeVersion está instalado. Este projeto exige Node.js 22.22.0 ou superior. Instale a versão LTS e abra um novo PowerShell."
+}
+
+if (!(Test-Path -LiteralPath $ZipPath)) {
+    throw "Não encontrei o ZIP em Downloads: $ZipPath"
+}
+if (Test-Path -LiteralPath $ProjectRoot) {
+    throw "A pasta já existe. Renomeie ou remova a pasta antes de extrair: $ProjectRoot"
+}
+
+New-Item -ItemType Directory -Path $ProjectRoot | Out-Null
+Expand-Archive -LiteralPath $ZipPath -DestinationPath $ProjectRoot -Force
+Set-Location -LiteralPath $ProjectRoot
+
+npm install
+if ($LASTEXITCODE -ne 0) { throw "npm install falhou." }
+
+npm run check
+if ($LASTEXITCODE -ne 0) { throw "A verificação Astro/TypeScript falhou." }
+
+npm run build
+if ($LASTEXITCODE -ne 0) { throw "O build falhou." }
+
+npm run dev
+
+3. Quando o Astro mostrar o endereço local no terminal, abra-o no navegador.

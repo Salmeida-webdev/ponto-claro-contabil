@@ -1,0 +1,10 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import services from '../../data/services.json';
+---
+<SiteLayout title="Serviços contábeis" description="Veja os serviços conceituais para pequenos negócios, MEIs e profissionais autônomos." path="/servicos/">
+  <section class="page-hero container page-hero--compact"><p class="eyebrow">Serviços</p><h1>O que precisa de <em>organização</em> hoje?</h1><p class="page-hero__lead">Conheça as frentes de apoio e converse para entender quais fazem sentido para a sua atividade.</p></section>
+  <section class="section container service-page-grid"><div class="service-grid">{services.map((service) => <ServiceCard {...service} />)}</div><aside class="service-aside"><p class="eyebrow">Importante</p><h2>O escopo depende do seu contexto.</h2><p>Esta página apresenta categorias de serviço de forma demonstrativa. O atendimento, os documentos e as obrigações aplicáveis dependem da atividade e da situação de cada negócio.</p><a class="text-link" href="/contato/">Tirar uma dúvida <span aria-hidden="true">↗</span></a></aside></section>
+  <section class="cta-section container"><div class="cta-card"><div><p class="eyebrow">Não sabe por onde começar?</p><h2>Conte o que está acontecendo.</h2><p>Uma primeira conversa ajuda a organizar as perguntas importantes.</p></div><a class="button button--light" href="/contato/">Solicitar uma conversa <span aria-hidden="true">↗</span></a><span class="cta-card__decoration" aria-hidden="true">↗</span></div></section>
+</SiteLayout>

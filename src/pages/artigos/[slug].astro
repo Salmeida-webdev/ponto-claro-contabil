@@ -1,0 +1,14 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+export async function getStaticPaths() {
+  const articles = await getCollection('blog');
+  return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+const { article } = Astro.props;
+const { Content } = await render(article);
+const date = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' }).format(article.data.pubDate);
+---
+<SiteLayout title={article.data.title} description={article.data.description} path={`/artigos/${article.id}/`}>
+  <article class="article-page container"><a class="back-link" href="/artigos/">← Voltar aos artigos</a><header class="article-page__header"><p class="eyebrow">{article.data.category} <span aria-hidden="true">·</span> {article.data.readingTime}</p><h1>{article.data.title}</h1><p class="article-page__description">{article.data.description}</p><p class="article-page__date">Conteúdo demonstrativo · {date}</p></header><div class="article-prose"><Content /></div><aside class="article-disclaimer"><strong>Conteúdo conceitual.</strong> Este material é informativo e não representa orientação contábil, fiscal ou jurídica aplicável a um caso específico. Regras podem mudar; confirme sua situação com profissional habilitado.</aside><div class="article-end-cta"><p>Ficou com uma dúvida sobre a sua rotina?</p><a class="button button--primary" href="/contato/">Continuar a conversa <span aria-hidden="true">↗</span></a></div></article>
+</SiteLayout>

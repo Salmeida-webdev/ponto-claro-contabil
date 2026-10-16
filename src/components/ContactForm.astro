@@ -1,0 +1,31 @@
+<form class="contact-form" id="contact-form">
+  <div class="form-grid">
+    <label>
+      Seu nome
+      <input name="name" autocomplete="name" minlength="2" maxlength="80" required />
+    </label>
+    <label>
+      Seu e-mail <span class="optional">(opcional)</span>
+      <input name="email" type="email" autocomplete="email" maxlength="120" />
+    </label>
+    <label class="form-grid__wide">
+      O que você gostaria de conversar?
+      <select name="topic" required>
+        <option value="" selected disabled>Selecione um assunto</option>
+        <option>Contabilidade para empresas</option>
+        <option>Apoio ao MEI</option>
+        <option>Abertura e formalização</option>
+        <option>Rotina fiscal e tributária</option>
+        <option>Folha e departamento pessoal</option>
+        <option>Outro assunto</option>
+      </select>
+    </label>
+    <label class="form-grid__wide">
+      Conte um pouco sobre sua dúvida
+      <textarea name="message" rows="5" minlength="10" maxlength="1000" required></textarea>
+    </label>
+  </div>
+  <p class="form-note">Ao continuar, o site abrirá o WhatsApp com a mensagem preenchida. Você poderá revisar e enviar. As informações não são armazenadas neste site.</p>
+  <button class="button button--primary" type="submit">Continuar no WhatsApp <span aria-hidden="true">↗</span></button>
+  <p class="form-status" id="form-status" aria-live="polite"></p>
+</form>

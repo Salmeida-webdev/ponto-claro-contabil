@@ -1,0 +1,38 @@
+[
+  {
+    "number": "01",
+    "title": "Contabilidade para empresas",
+    "description": "Organização das rotinas contábeis e apoio para entender os documentos e as informações do negócio.",
+    "audiences": ["Pequenos negócios", "Empresas"]
+  },
+  {
+    "number": "02",
+    "title": "Apoio ao MEI",
+    "description": "Orientação para acompanhar as obrigações e manter a rotina do microempreendedor organizada.",
+    "audiences": ["MEIs", "Autônomos"]
+  },
+  {
+    "number": "03",
+    "title": "Abertura e formalização",
+    "description": "Conversa inicial para mapear a atividade, as dúvidas e os próximos passos de formalização.",
+    "audiences": ["Quem está começando", "Profissionais"]
+  },
+  {
+    "number": "04",
+    "title": "Rotina fiscal e tributária",
+    "description": "Acompanhamento das demandas fiscais do negócio, com explicações em linguagem direta.",
+    "audiences": ["Pequenos negócios", "Empresas"]
+  },
+  {
+    "number": "05",
+    "title": "Folha e departamento pessoal",
+    "description": "Apoio na organização das informações relacionadas a colaboradores e folha de pagamento.",
+    "audiences": ["Empresas com equipe", "Pequenos negócios"]
+  },
+  {
+    "number": "06",
+    "title": "Organização financeira",
+    "description": "Estruturação de uma rotina simples para acompanhar documentos, prazos e informações financeiras.",
+    "audiences": ["MEIs", "Autônomos", "Pequenos negócios"]
+  }
+]

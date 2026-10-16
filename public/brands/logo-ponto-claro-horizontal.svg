@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" fill="none">
+  <rect x="10" y="10" width="280" height="280" rx="58" fill="#3047D8"/>
+  <path d="M95 224V76h73c39 0 63 21 63 58s-24 58-63 58h-48" stroke="#F7F8FC" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="219" cy="70" r="23" fill="#DDF36D"/>
+  <text x="350" y="174" fill="#17213F" font-family="Arial, Helvetica, sans-serif" font-size="117" font-weight="700" letter-spacing="-7">ponto claro</text>
+  <text x="360" y="239" fill="#3047D8" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="700" letter-spacing="18">CONTÁBIL</text>
+</svg>

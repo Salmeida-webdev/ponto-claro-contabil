@@ -1,0 +1,34 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import services from '../data/services.json';
+import { getCollection } from 'astro:content';
+const articles = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+---
+<SiteLayout title="Contabilidade próxima e compreensível" description="Uma apresentação conceitual de serviços contábeis para pequenos negócios, MEIs e profissionais autônomos.">
+  <section class="hero container">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="eyebrow__dot"></span> Clareza para quem empreende</p>
+      <h1>Você cuida do negócio.<br /><em>A gente organiza</em> os próximos passos.</h1>
+      <p class="hero__lead">Contabilidade próxima, explicada em linguagem simples e pensada para a rotina de pequenos negócios, MEIs e profissionais autônomos.</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="/contato/">Solicitar uma conversa <span aria-hidden="true">↗</span></a>
+        <a class="button button--text" href="/servicos/">Conhecer os serviços <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero__footnote">Atendimento começa com uma conversa sobre o que você precisa.</p>
+    </div>
+    <figure class="hero__visual">
+      <img src="/images/mesa-contabilidade-960.webp" srcset="/images/mesa-contabilidade-960.webp 960w, /images/mesa-contabilidade-1536.webp 1536w" sizes="(max-width: 760px) 100vw, 48vw" width="1536" height="1024" alt="Mesa de trabalho acolhedora com caderno aberto, caneta, computador e planta." fetchpriority="high" decoding="async" />
+      <figcaption><span aria-hidden="true">✳</span> Organização que começa pela conversa</figcaption>
+    </figure>
+    <div class="hero__seal" aria-hidden="true"><span>+</span><small>mais<br />clareza</small></div>
+  </section>
+  <section class="intro-band"><div class="container intro-band__inner"><p>Um jeito mais próximo<br />de cuidar da contabilidade.</p><p>Informações organizadas e explicações diretas ajudam você a entender a rotina e conversar com mais segurança sobre o seu negócio.</p><a class="text-link" href="/empresa/">Conheça o nosso jeito <span aria-hidden="true">↗</span></a></div></section>
+  <section class="section container"><div class="section-row"><SectionHeading eyebrow="Como podemos ajudar" title="Serviços para apoiar a sua rotina" text="O escopo é definido a partir da atividade e das necessidades de cada negócio." /><a class="button button--outline" href="/servicos/">Ver todos os serviços <span aria-hidden="true">→</span></a></div><div class="service-grid service-grid--home">{services.slice(0, 3).map((service) => <ServiceCard {...service} />)}</div></section>
+  <section class="audiences-section"><div class="container audiences-layout"><div class="audiences-intro"><p class="eyebrow">Para diferentes jornadas</p><h2>Seu negócio tem uma rotina própria. O atendimento também deve ter.</h2><p>Conversamos sobre seu momento, explicamos os caminhos possíveis e combinamos os próximos passos com clareza.</p><a class="text-link" href="/segmentos/">Ver quem atendemos <span aria-hidden="true">↗</span></a></div><div class="audiences-list"><a href="/segmentos/#pequenos-negocios"><span>01</span><strong>Pequenos negócios</strong><span class="arrow" aria-hidden="true">↗</span></a><a href="/segmentos/#mei"><span>02</span><strong>MEIs</strong><span class="arrow" aria-hidden="true">↗</span></a><a href="/segmentos/#autonomos"><span>03</span><strong>Profissionais autônomos</strong><span class="arrow" aria-hidden="true">↗</span></a></div></div></section>
+  <section class="section container process-section"><SectionHeading eyebrow="Um começo simples" title="Da primeira dúvida a uma rotina mais clara" text="Cada conversa começa pelo que você precisa entender agora." centered /><ol class="process-grid"><li><span>01</span><h3>Conte o que precisa</h3><p>Envie sua dúvida ou descreva o momento do seu negócio.</p></li><li><span>02</span><h3>Organizamos o cenário</h3><p>Entendemos as informações e explicamos o que precisa ser considerado.</p></li><li><span>03</span><h3>Combinamos os próximos passos</h3><p>Você recebe uma orientação inicial e entende como seguir a conversa.</p></li></ol></section>
+  <section class="journal-section"><div class="container"><div class="section-row"><SectionHeading eyebrow="Conteúdo para consultar" title="Ideias práticas para a rotina do negócio" text="Conteúdos demonstrativos em linguagem direta. Procure orientação profissional para avaliar o seu caso específico." /><a class="button button--outline" href="/artigos/">Todos os artigos <span aria-hidden="true">→</span></a></div><div class="article-grid">{articles.map((article) => <ArticleCard href={`/artigos/${article.id}/`} {...article.data} />)}</div></div></section>
+  <section class="cta-section container"><div class="cta-card"><div><p class="eyebrow">Vamos conversar?</p><h2>Comece pela dúvida que está na sua frente.</h2><p>Explique o que você precisa e veja como podemos organizar a conversa.</p></div><a class="button button--light" href="/contato/">Solicitar uma conversa <span aria-hidden="true">↗</span></a><span class="cta-card__decoration" aria-hidden="true">↗</span></div></section>
+</SiteLayout>
